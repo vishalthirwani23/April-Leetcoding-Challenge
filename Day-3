@@ -1,0 +1,18 @@
+https://leetcode.com/explore/challenge/card/30-day-leetcoding-challenge/528/week-1/3285/
+Code:
+
+Method 1: Kadane's Algorithm
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        int n=nums.size(),ans=INT_MIN,a=0;
+       
+        for(int x:nums){
+            a=max(x,a+x);
+            ans=max(ans,a);
+        }
+        return ans;
+    }
+};
+
+Method 2:
