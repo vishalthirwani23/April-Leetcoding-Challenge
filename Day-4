@@ -1,0 +1,15 @@
+https://leetcode.com/explore/challenge/card/30-day-leetcoding-challenge/528/week-1/3286/
+Code:
+
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int n=nums.size(),j=0;
+        for(int i=0;i<n;i++){
+            if(nums[i])
+                nums[j++]=nums[i];
+            }  
+        while(j<n ) nums[j++]=0;
+        }
+   
+};
