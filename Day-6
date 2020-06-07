@@ -1,0 +1,28 @@
+https://leetcode.com/explore/challenge/card/30-day-leetcoding-challenge/528/week-1/3288/
+Code:
+
+Method 1: Time Complexity O(n*k*logk) | Space Complexity O(n*k)  //n is the number of strings and k is the maximum of length of strings
+class Solution {
+public:
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        vector<vector<string>> v;
+        map<string,int> m;
+       
+        int j=0;
+        for(int i=0;i<strs.size();i++){
+             string k=strs[i];
+             sort(strs[i].begin(),strs[i].end());
+            if(m[strs[i]]){
+                v[m[strs[i]]-1].push_back(k);
+            }
+            else{
+                v.push_back({k});
+                 j++;
+                m[strs[i]]=j;
+            }
+        }
+        return v;
+    }
+};
+
+Method 2:
