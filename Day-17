@@ -1,0 +1,42 @@
+https://leetcode.com/explore/challenge/card/30-day-leetcoding-challenge/530/week-3/3302/
+Code:
+
+class Solution {
+public:
+    
+    vector<int> v={1,0,-1,0,1};
+    
+    void dfs(vector<vector<char>>& grid , vector<vector<bool>>& visited ,int x, int y){
+        
+        int m=grid.size(),n=grid[0].size();
+        
+        visited[x][y]=true;
+        
+        for(int i=0;i<4;i++){
+            int a=x+v[i],b=y+v[i+1];
+             if(a>=0 && a<m && b>=0 && b<n && grid[a][b]=='1' && visited[a][b]==false)
+                 dfs(grid,visited,a,b);
+        }
+        
+    }
+    int numIslands(vector<vector<char>>& grid) {
+        
+        if(grid.empty()) return 0;
+        
+        int m=grid.size(),n=grid[0].size(),ans=0;
+        
+        vector<vector<bool>> visited(m,vector<bool>(n));
+        
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                if(grid[i][j]=='1' && visited[i][j]==false){
+                    ans++;
+                    dfs(grid,visited,i,j);
+            }
+            }
+        }
+        
+        return ans;
+        
+    }
+};
